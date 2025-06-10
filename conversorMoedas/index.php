@@ -11,33 +11,8 @@
 
 <body>
 
-    <form method="post">
-        <label>R$ <input type="number" name="moedaReais" required></label><br><br>
-        <label>Dolar/Euro <input type="text" name="escolha" required></label><br><br>
-        <label>Cotação do Dólar: <input type="number" step="0.01" name="cotacaoDolar" required></label><br><br>
-        <label>Cotação do Euro: <input type="number" step="0.01" name="cotacaoEuro" required></label><br><br>
-
-        <button type="submit">Calcular</button>
-    </form>
-
-    <?php
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-        $conv = new Conversor();
-
-
-        $escolha = $_POST['escolha'];
-        $moeda = $_POST['moedaReais'];
-        $conv->setEscolha($escolha);
-        $conv->setMoedaDolar($_POST['cotacaoDolar']);
-        $conv->setMoedaEuro($_POST['cotacaoEuro']);
-        $conv->setMoeda($moeda);
-
-
-        echo "<h3>Resultado:</h3>";
-        echo $conv->converter($conv->getEscolha());
-    }
-    ?>
+    <a href="./realPDolar.php">Dolar</a>
+    <a href="./realPEuro.php">Euro</a>
 
 </body>
 

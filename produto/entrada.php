@@ -23,8 +23,8 @@
     <?php
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         //$est = new Estoque();
-session_start();
-$est = unserialize($_SESSION['estoque']);
+        session_start();
+        $est = unserialize($_SESSION['estoque']);
         /* nomeProduto: $_POST['nomeProduto'],
          entradaEstoque: $_POST['entradaEstoque'] ?? 0,
          saidaEstoque: $_POST['saidaEstoque'] ?? 0,
@@ -54,8 +54,8 @@ $est = unserialize($_SESSION['estoque']);
     }
 
     ?>
-<a href="./entrada.php">Teste</a>
-<a href="./saida.php">Saida</a>
+    <a href="./entrada.php">Teste</a>
+    <a href="./saida.php">Saida</a>
 </body>
 
 </html>

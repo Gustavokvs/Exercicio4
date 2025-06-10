@@ -20,9 +20,9 @@
     <?php
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['saidaEstoque'])) {
         // Conversão de tipos para evitar erro de tipagem
-       session_start();
-$est = unserialize($_SESSION['estoque']);
-    
+        session_start();
+        $est = unserialize($_SESSION['estoque']);
+
         $est->setSaidaEstoque($_POST['saidaEstoque']);
 
         //  $est = new Estoque();
@@ -35,11 +35,11 @@ $est = unserialize($_SESSION['estoque']);
 
         echo "<h3>Estoque Atual</h3>";
         $est->darSaidaEstoque($est->getSaidaEstoque());
-      //  echo $est->consultarEstoque();
+        //  echo $est->consultarEstoque();
     }
     ?>
     <a href="./entrada.php">Teste</a>
-<a href="./saida.php">Saida</a>
+    <a href="./saida.php">Saida</a>
 </body>
 
 </html>
