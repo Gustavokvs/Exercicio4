@@ -22,7 +22,7 @@
     session_start();
     $est = unserialize($_SESSION['estoque']);
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['saidaEstoque'])) {
-
+//T
 
 
         $est->setSaidaEstoque($_POST['saidaEstoque']);
