@@ -87,17 +87,16 @@ class Estoque
             $this->quantidadeEstoque -= $saidaEstoque;
         }
 
-        // return "$this->nomeProduto retirado $this->quantidadeEstoque do estoque";
-        return "retirado ".$this->getQuantidadeEstoque()." do estoque";
+        return "retirado " . $this->getQuantidadeEstoque() . " do estoque";
     }
 
     public function consultarEstoque(): string
     {
         $valorTotalEntrada = $this->getValorUnitario() * $this->getQuantidadeEstoque();
 
-        return $this->getNomeProduto()." tem um total de ".$this->getQuantidadeEstoque()." em estoque <br>
+        return $this->getNomeProduto() . " tem um total de " . $this->getQuantidadeEstoque() . " em estoque <br>
         total em valor: $valorTotalEntrada <br>
-        preço por peça: ".$this->getValorUnitario();
+        preço por peça: " . $this->getValorUnitario();
 
     }
 }

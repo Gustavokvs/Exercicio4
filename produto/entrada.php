@@ -21,16 +21,13 @@
 
 
     <?php
+    session_start();
+    /* SESSION É UMA VARIAVEL GLOBAL, QUE GUARDA OS DADOS DE UMA PÁGINA PARA OUTRA*/
+
+    $est = unserialize($_SESSION['estoque']);
+    var_dump($est);
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        //$est = new Estoque();
-        session_start();
-        $est = unserialize($_SESSION['estoque']);
-        /* nomeProduto: $_POST['nomeProduto'],
-         entradaEstoque: $_POST['entradaEstoque'] ?? 0,
-         saidaEstoque: $_POST['saidaEstoque'] ?? 0,
-         valorUnitario: $_POST['valorUnitario'],
-         quantidadeEstoque: $_POST['quantidadeEstoque'] ?? 0,
-     );*/
+
         $nomeProduto = $_POST['nomeProduto'];
         $entrada = $_POST['entradaEstoque'];
         $valorUnitario = $_POST['valorUnitario'];
@@ -39,22 +36,19 @@
         $est->setNomeProduto($nomeProduto);
         $est->setEntradaEstoque($entrada);
         $est->setValorUnitario($valorUnitario);
-        $est->setQuantidadeEstoque(0);
-
+        $est->setNomeEstoque($entrada);
 
         echo "<h3>Estoque Atual</h3>";
         $est->darEntradaEstoque($est->getEntradaEstoque());
         echo $est->consultarEstoque();
-        // Depois de chamar $est->darEntradaEstoque(...)
-    
-        // $nomeProduto = urlencode($_POST['nomeProduto']);
-        // $valorUnitario = (float) $_POST['valorUnitario'];
-        // $quantidadeEstoque = (int) $_POST['entradaEstoque']; // usar entrada como estoque inicial
-    
+        $_SESSION['estoque'] = serialize($est);
+
+
+
     }
 
     ?>
-    <a href="./entrada.php">Teste</a>
+    <a href="./entrada.php">Entrada</a>
     <a href="./saida.php">Saida</a>
 </body>
 

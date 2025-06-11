@@ -18,27 +18,23 @@
     </form>
 
     <?php
+    /* SESSION É UMA VARIAVEL GLOBAL, QUE GUARDA OS DADOS DE UMA PÁGINA PARA OUTRA*/
+    session_start();
+    $est = unserialize($_SESSION['estoque']);
+    var_dump($est);
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['saidaEstoque'])) {
-        // Conversão de tipos para evitar erro de tipagem
-        session_start();
-        $est = unserialize($_SESSION['estoque']);
+
+
 
         $est->setSaidaEstoque($_POST['saidaEstoque']);
 
-        //  $est = new Estoque();
-        /*    nomeProduto: $nomeProduto,
-            quantidadeEstoque: $quantidadeEstoque,
-            valorUnitario: $valorUnitario,
-            entradaEstoque: 0,
-            saidaEstoque: $saidaEstoque
-        );*/
+
 
         echo "<h3>Estoque Atual</h3>";
-        $est->darSaidaEstoque($est->getSaidaEstoque());
-        //  echo $est->consultarEstoque();
+        echo $est->darSaidaEstoque($est->getSaidaEstoque());
     }
     ?>
-    <a href="./entrada.php">Teste</a>
+    <a href="./entrada.php">Entrada</a>
     <a href="./saida.php">Saida</a>
 </body>
 
