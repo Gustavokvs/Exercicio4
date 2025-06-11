@@ -6,7 +6,7 @@ class Hotel
     private int $noites;
     private string $tipoQuarto;
     private float $desconto = 0;
-    private float $total;
+    private float $total = 0;
 
     public function getNome(): string
     {
@@ -43,7 +43,10 @@ class Hotel
     {
         return $this->desconto;
     }
-
+    public function setTotal(float $total)
+    {
+        $this->total = $total;
+    }
     public function getTotal(): float
     {
         return $this->total;
@@ -58,7 +61,7 @@ class Hotel
         }
     }
 
-    public function calcularTotalHospedagem(): float
+    public function calcularTotalHospedagem(): float|string
     {
         switch (strtolower($this->tipoQuarto)) {
             case "simples":
@@ -77,10 +80,20 @@ class Hotel
         $subtotal = $precoNoite * $this->noites;
         $this->calcularDesconto($subtotal);
 
-        $this->total = $subtotal - $this->desconto;
+        $this->setTotal($subtotal - $this->desconto);
 
-        return $this->total;
+        return "";
     }
-}
 
-?>
+    public function fazerAtendimento()
+    {
+
+        return "Bem vindo " . $this->getNome() . "<br>
+        sua estadia no Hotel, no quarto " . $this->getTipoQuarto() . " <br>
+        por " . $this->getNoites() . " noites, fica no valor total de " . $this->getTotal();
+    }
+
+
+
+
+}

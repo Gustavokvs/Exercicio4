@@ -22,11 +22,11 @@
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $hot = new Hotel();
         $hot->setNoites((int) $_POST['numeroNoites']);
-        $hot->setTipoQuarto((string) $_POST['tipoQuarto']);
-        $hot->setNome((float) $_POST['nome']);
-    
-    
-        echo $hot->calcularTotalHospedagem();
+        $hot->setTipoQuarto((string) $_POST['tipoQuarto']); 
+        $hot->setNome((string) $_POST['nome']);
+
+        $hot->calcularTotalHospedagem();
+        echo $hot->fazerAtendimento();
     }
     ?>
 </body>
