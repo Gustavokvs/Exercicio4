@@ -21,7 +21,6 @@
     /* SESSION É UMA VARIAVEL GLOBAL, QUE GUARDA OS DADOS DE UMA PÁGINA PARA OUTRA*/
     session_start();
     $est = unserialize($_SESSION['estoque']);
-    var_dump($est);
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['saidaEstoque'])) {
 
 
